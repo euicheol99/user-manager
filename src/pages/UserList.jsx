@@ -10,6 +10,8 @@ const Card = styled.div`
     height: 350px;
     border: 1px solid;
     margin-right: 50px;
+    border-radius:12px;
+    font-weight: bold;
 `
 const Button = styled.button`
     position: absolute;
