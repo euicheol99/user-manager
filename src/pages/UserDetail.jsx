@@ -1,9 +1,11 @@
 import React from 'react'
+import { UserProvider } from '../components/UserContext'
 
 const UserDetail = () => {
-  return (
-    <div>UserDetail</div>
-  )
+    const {userList,setUserList} = UserProvider
+    return (
+      <div>UserDetail</div>
+    )
 }
 
 export default UserDetail

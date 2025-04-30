@@ -22,9 +22,14 @@ const Button = styled.button`
 `
 
 const UserList = () => {
-    const {userList} = useUserContext();
+    const {userList,setUserList} = useUserContext();
 
     const navigate = useNavigate();
+
+    const deleteUser = (id) => {
+        setUserList(prevList => prevList.filter(user => user.id !== id));
+    }
+    
     return (
         <Layout>
             {userList.map((newUser) => (
@@ -40,8 +45,8 @@ const UserList = () => {
                     <div>이름: {newUser.name}</div>
                     <div>나이: {newUser.age}</div>
                     <div>성별: {newUser.gender === "man" ? "남자" : "여자" }</div>
-                    <div>{newUser.userState === "online" ? "🟢 온라인 상태입니다.": "🔴 오프라인 상태입니다."}
-                    </div>
+                    <div>{newUser.userState === "online" ? "🟢 온라인 상태입니다.": "🔴 오프라인 상태입니다."}</div>
+                    <button onClick={() => deleteUser(newUser.id)}>삭제하기</button>
                 </Card>
             ))}
 
